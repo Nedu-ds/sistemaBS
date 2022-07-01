@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS_DSI</title>
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/spam.css">
+    <title>BS_DSI</title>
+ 
+</head>
+<body>
+    <header>
+        <div class="header-logo ">
+            <h4 class="text-light font-weight-bold">BS_DSI</h4>
+        </div>
+        <div class="header-user">
+            <H4 class="text-centrado" >Seguridad de la Información BS</h4>
+            <H4 class="text-centrado" >Bienvenido {{usuario}}</h4>
+        </div>
+    </header>
+    <main>
+        <section class="side-bar">
+            <ul class="side-bar-menu">
+                <li class="li-menu"><a href="{{url_for('index')}}"><i class="icon-menu"></i> Men&uacute;</a></li>                
+                <li class="li-menu"  onclick="myFunction()"><a><i class="icon-key"></i> Accesos</a>     
+                    <nav id="myDIV">
+                        <ul class="side-bar-menu-access">
+                            <li><a href="{{url_for('wifi')}}">Wifi</a></li>
+                            <li><a href="#">Navegaci&oacuten</a></li>
+                            <li><a href="#">VPN</a></li>           
+                        </ul>
+                    </nav>
+                </li>    
+                <li class="li-menu"><a href="{{url_for('dashboard')}}"><i class="icon-stumbleupon2"></i> Dashboard</a></li>                
+                <li class="li-menu"><a href="{{url_for('spam')}}"><i class="icon-mail"></i> Antispam</a></li>                
+                <li class="li-menu"><a href="{{url_for('create')}}"><i class="icon-users"></i> Usuarios</a></li>                
+                <li class="li-menu"><a href="{{url_for('logout')}}"><i class="icon-exit"></i> Salir</a></li>                
+            </ul>
+        </section>
+        <section class="main-content">
+            <div>
+                {%block content%}
+    	        {%endblock%} 
+                {% block javascripts %}{% endblock javascripts %}
+            </div>            
+        </section>            
+    </main>
+    <script>
+        function myFunction(){        
+            var element = document.getElementById("myDIV");
+            element.classList.toggle("mystyle");
+        }
+    </script>
+</body>
+</html>
